@@ -110,7 +110,7 @@ pub fn apply_subsections(
     mut applier: impl FnMut(syn::Expr) -> Result<(), syn::Error>,
 ) -> Result<(), syn::Error> {
     if list.tokens.is_empty() {
-        return Err(syn::Error::new_spanned(list, "Expected builder(…)"));
+        return Ok(());
     }
 
     let parser = syn::punctuated::Punctuated::<_, syn::token::Comma>::parse_terminated;
